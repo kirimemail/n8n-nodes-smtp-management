@@ -31,12 +31,14 @@
 		"n8nNodesApiVersion": 1,
 		"strict": true,
 		"credentials": [
-			"dist/credentials/KirimEmailSmtpUserApi.credentials.js"
+			"dist/credentials/KirimEmailSmtpUserApi.credentials.js",
+			"dist/credentials/KirimEmailSmtpWebhookApi.credentials.js"
 		],
 		"nodes": [
 			"dist/nodes/KirimEmailValidation/KirimEmailValidation.node.js",
 			"dist/nodes/KirimEmailQuota/KirimEmailQuota.node.js",
-			"dist/nodes/KirimEmailMessage/KirimEmailMessage.node.js"
+			"dist/nodes/KirimEmailMessage/KirimEmailMessage.node.js",
+			"dist/nodes/KirimEmailSmtpWebhookTrigger/KirimEmailSmtpWebhookTrigger.node.js"
 		]
 	},
 	"devDependencies": {
