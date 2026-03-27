@@ -1,0 +1,446 @@
+import {
+	NodeConnectionTypes,
+	type IExecuteFunctions,
+	type INodeType,
+	type INodeTypeDescription,
+	type INodeExecutionData,
+} from 'n8n-workflow';
+import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+
+interface EmailAttachment {
+	filename: string;
+	content: Buffer;
+	contentType: string;
+}
+
+export class KirimEmailMessage implements INodeType {
+	description: INodeTypeDescription = {
+		displayName: 'KirimEmail Message',
+		name: 'kirimEmailMessage',
+		icon: {
+			light: 'file:assets/logo-bg-white.svg',
+			dark: 'file:assets/logo-bg-black.svg',
+		},
+		group: ['output'],
+		version: 1,
+		subtitle: '={{$parameter["operation"]}}',
+		description: 'Send transactional emails using Kirim.Email SMTP',
+		defaults: {
+			name: 'KirimEmail Message',
+		},
+		usableAsTool: true,
+		inputs: [NodeConnectionTypes.Main],
+		outputs: [NodeConnectionTypes.Main],
+		credentials: [
+			{
+				name: 'kirimEmailSmtpUserApi',
+				required: true,
+			},
+		],
+		properties: [
+			{
+				displayName: 'Operation',
+				name: 'operation',
+				type: 'options',
+				noDataExpression: true,
+				options: [
+					{
+						name: 'Send',
+						value: 'send',
+						description: 'Send a transactional email',
+						action: 'Send email',
+					},
+					{
+						name: 'Send with Template',
+						value: 'sendTemplate',
+						description: 'Send email using a saved template',
+						action: 'Send template email',
+					},
+				],
+				default: 'send',
+			},
+			{
+				displayName: 'Domain',
+				name: 'domain',
+				type: 'string',
+				required: true,
+				placeholder: 'example.com',
+				description: 'The domain name owned by the authenticated user',
+				displayOptions: {
+					show: {
+						operation: ['send', 'sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'From',
+				name: 'from',
+				type: 'string',
+				required: true,
+				placeholder: 'noreply@example.com',
+				description: 'Sender email address. Must belong to the authenticated domain.',
+				displayOptions: {
+					show: {
+						operation: ['send'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'From Name',
+				name: 'fromName',
+				type: 'string',
+				placeholder: 'Company Name',
+				description: 'Optional sender display name',
+				displayOptions: {
+					show: {
+						operation: ['send', 'sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'To',
+				name: 'to',
+				type: 'string',
+				required: true,
+				placeholder: 'recipient@example.com',
+				description:
+					'Recipient email address(es). For multiple recipients, use comma-separated emails.',
+				displayOptions: {
+					show: {
+						operation: ['send', 'sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Subject',
+				name: 'subject',
+				type: 'string',
+				required: true,
+				placeholder: 'Email Subject',
+				description: 'Email subject line',
+				displayOptions: {
+					show: {
+						operation: ['send'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Text Body',
+				name: 'text',
+				type: 'string',
+				typeOptions: {
+					rows: 10,
+				},
+				required: true,
+				description: 'Plain text content for the email body',
+				displayOptions: {
+					show: {
+						operation: ['send'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'HTML Body',
+				name: 'html',
+				type: 'string',
+				typeOptions: {
+					rows: 10,
+				},
+				description: 'Optional HTML content for the email body',
+				displayOptions: {
+					show: {
+						operation: ['send'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Template ID',
+				name: 'templateGuid',
+				type: 'string',
+				required: true,
+				placeholder: '550e8400-e29b-41d4-a716-446655440000',
+				description: 'UUID of the template to use',
+				displayOptions: {
+					show: {
+						operation: ['sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Variables',
+				name: 'variables',
+				type: 'string',
+				typeOptions: {
+					rows: 5,
+				},
+				description:
+					'Variables for template replacement as JSON object. Example: {"name": "John", "product": "Widget"}.',
+				displayOptions: {
+					show: {
+						operation: ['sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Reply To',
+				name: 'replyTo',
+				type: 'string',
+				placeholder: 'support@example.com',
+				description:
+					'Reply-to email address. Must share the same top-level domain as the from address.',
+				displayOptions: {
+					show: {
+						operation: ['send', 'sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Headers (JSON)',
+				name: 'headers',
+				type: 'string',
+				typeOptions: {
+					rows: 3,
+				},
+				description:
+					'Optional custom email headers as JSON. Example: {"X-Campaign-ID": "welcome-series"}.',
+				displayOptions: {
+					show: {
+						operation: ['send', 'sendTemplate'],
+					},
+				},
+				default: '',
+			},
+			{
+				displayName: 'Attachments',
+				name: 'attachments',
+				type: 'string',
+				typeOptions: {
+					multipleValues: true,
+				},
+				description: 'Binary properties containing attachments',
+				displayOptions: {
+					show: {
+						operation: ['send', 'sendTemplate'],
+					},
+				},
+				default: '',
+			},
+		],
+	};
+
+	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
+		const items = this.getInputData();
+		const returnData: INodeExecutionData[] = [];
+
+		for (let i = 0; i < items.length; i++) {
+			try {
+				const operation = this.getNodeParameter('operation', i) as string;
+				const domain = this.getNodeParameter('domain', i) as string;
+
+				if (!domain) {
+					throw new NodeOperationError(this.getNode(), 'Domain is required', { itemIndex: i });
+				}
+
+				let endpoint = '';
+				const formData: Record<string, unknown> = {};
+
+				if (operation === 'send') {
+					endpoint = `/api/domains/${domain}/message`;
+
+					const from = this.getNodeParameter('from', i) as string;
+					const to = this.getNodeParameter('to', i) as string;
+					const subject = this.getNodeParameter('subject', i) as string;
+					const text = this.getNodeParameter('text', i) as string;
+
+					if (!from) {
+						throw new NodeOperationError(this.getNode(), 'From email is required', {
+							itemIndex: i,
+						});
+					}
+					if (!to) {
+						throw new NodeOperationError(this.getNode(), 'To email is required', { itemIndex: i });
+					}
+					if (!subject) {
+						throw new NodeOperationError(this.getNode(), 'Subject is required', { itemIndex: i });
+					}
+					if (!text) {
+						throw new NodeOperationError(this.getNode(), 'Text body is required', { itemIndex: i });
+					}
+
+					formData.from = from;
+					formData.to = to;
+					formData.subject = subject;
+					formData.text = text;
+
+					const fromName = this.getNodeParameter('fromName', i) as string;
+					if (fromName) {
+						formData.from_name = fromName;
+					}
+
+					const html = this.getNodeParameter('html', i) as string;
+					if (html) {
+						formData.html = html;
+					}
+
+					const replyTo = this.getNodeParameter('replyTo', i) as string;
+					if (replyTo) {
+						formData.reply_to = replyTo;
+					}
+
+					const headers = this.getNodeParameter('headers', i) as string;
+					if (headers) {
+						try {
+							JSON.parse(headers);
+							formData.headers = headers;
+						} catch {
+							throw new NodeOperationError(this.getNode(), 'Headers must be valid JSON', {
+								itemIndex: i,
+							});
+						}
+					}
+				} else if (operation === 'sendTemplate') {
+					endpoint = `/api/domains/${domain}/message/template`;
+
+					const templateGuid = this.getNodeParameter('templateGuid', i) as string;
+					const to = this.getNodeParameter('to', i) as string;
+
+					if (!templateGuid) {
+						throw new NodeOperationError(this.getNode(), 'Template ID is required', {
+							itemIndex: i,
+						});
+					}
+					if (!to) {
+						throw new NodeOperationError(this.getNode(), 'To email is required', { itemIndex: i });
+					}
+
+					formData.template_guid = templateGuid;
+					formData.to = to;
+
+					const from = this.getNodeParameter('from', i) as string;
+					if (from) {
+						formData.from = from;
+					}
+
+					const fromName = this.getNodeParameter('fromName', i) as string;
+					if (fromName) {
+						formData.from_name = fromName;
+					}
+
+					const variables = this.getNodeParameter('variables', i) as string;
+					if (variables) {
+						try {
+							JSON.parse(variables);
+							formData.variables = variables;
+						} catch {
+							throw new NodeOperationError(this.getNode(), 'Variables must be valid JSON', {
+								itemIndex: i,
+							});
+						}
+					}
+
+					const replyTo = this.getNodeParameter('replyTo', i) as string;
+					if (replyTo) {
+						formData.reply_to = replyTo;
+					}
+
+					const headers = this.getNodeParameter('headers', i) as string;
+					if (headers) {
+						try {
+							JSON.parse(headers);
+							formData.headers = headers;
+						} catch {
+							throw new NodeOperationError(this.getNode(), 'Headers must be valid JSON', {
+								itemIndex: i,
+							});
+						}
+					}
+				}
+
+				const attachmentProps = (this.getNodeParameter('attachments', i, '') as string) || '';
+				const binaryDataKeys = attachmentProps
+					? attachmentProps
+							.split(',')
+							.map((s) => s.trim())
+							.filter(Boolean)
+					: [];
+
+				if (binaryDataKeys.length > 0) {
+					const attachments: EmailAttachment[] = [];
+
+					for (const key of binaryDataKeys) {
+						const binaryData = items[i].binary?.[key];
+						if (binaryData) {
+							attachments.push({
+								filename: binaryData.fileName || key,
+								content: Buffer.from(binaryData.data, 'base64'),
+								contentType: binaryData.mimeType || 'application/octet-stream',
+							});
+						}
+					}
+
+					if (attachments.length > 0) {
+						formData.attachments = attachments.map((att) => ({
+							value: att.content,
+							options: {
+								filename: att.filename,
+								contentType: att.contentType,
+							},
+						}));
+					}
+				}
+
+				const credentials = await this.getCredentials('kirimEmailSmtpUserApi');
+				const baseUrl = credentials.baseUrl as string;
+
+				const response = await this.helpers.httpRequestWithAuthentication.call(
+					this,
+					'kirimEmailSmtpUserApi',
+					{
+						method: 'POST',
+						url: `${baseUrl}${endpoint}`,
+						// eslint-disable-next-line @typescript-eslint/no-explicit-any
+						formData: formData as any,
+						// eslint-disable-next-line @typescript-eslint/no-explicit-any
+					} as any,
+				);
+
+				returnData.push({
+					json: response as INodeExecutionData['json'],
+					pairedItem: { item: i },
+				});
+			} catch (error) {
+				if (this.continueOnFail()) {
+					returnData.push({
+						json: {
+							error: (error as Error).message,
+						},
+						pairedItem: { item: i },
+					});
+					continue;
+				}
+
+				if (error instanceof NodeApiError || error instanceof NodeOperationError) {
+					throw error;
+				}
+
+				throw new NodeApiError(
+					this.getNode(),
+					{ message: (error as Error).message, name: (error as Error).name },
+					{ itemIndex: i },
+				);
+			}
+		}
+
+		return [returnData];
+	}
+}
