@@ -1,6 +1,6 @@
 {
 	"name": "@kirimemail/n8n-nodes-smtp-management",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"description": "Kirim.Email SMTP management node for n8n - validate emails, check quota, and send emails",
 	"homepage": "https://kirim.email",
 	"license": "MIT",

@@ -35,6 +35,19 @@ Check quota information.
 
 - **Get** - Get current quota information
 
+### KirimEmail SMTP Webhook Trigger
+
+Receive webhook events from Kirim.Email SMTP.
+
+**Events:**
+
+- Email queued, sent, delivered, bounced, etc.
+- Automatic signature verification
+
+**Fields:**
+
+- Simplify Output - Return a simplified output with essential fields only
+
 ## Credentials
 
 ### KirimEmail SMTP User API
@@ -43,6 +56,15 @@ Check quota information.
 2. Navigate to your SMTP settings
 3. Copy your API token
 4. Use the API token as the password in n8n credential (username is `api`)
+
+### KirimEmail SMTP Webhook API
+
+Required for the KirimEmail SMTP Webhook Trigger node.
+
+1. Log in to your [Kirim.Email](https://smtp.kirim.email) account
+2. Navigate to your domain settings
+3. Copy your API key and API secret
+4. Enter your verified domain name
 
 ## Compatibility
 
