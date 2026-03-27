@@ -20,6 +20,13 @@ export class KirimEmailSmtpUserApi implements ICredentialType {
 
 	properties: INodeProperties[] = [
 		{
+			displayName: 'Username',
+			name: 'username',
+			type: 'string',
+			default: '',
+			description: 'The username for authentication',
+		},
+		{
 			displayName: 'API Token',
 			name: 'apiToken',
 			type: 'string',
@@ -27,13 +34,20 @@ export class KirimEmailSmtpUserApi implements ICredentialType {
 			default: '',
 			description: 'The API token for authentication',
 		},
+		{
+			displayName: 'Base URL',
+			name: 'baseUrl',
+			type: 'string',
+			default: 'https://smtp-app.kirim.email',
+			description: 'The base URL for the API',
+		},
 	];
 
 	authenticate: IAuthenticateGeneric = {
 		type: 'generic',
 		properties: {
 			auth: {
-				username: 'api',
+				username: '={{$credentials.username}}',
 				password: '={{$credentials.apiToken}}',
 			},
 		},
@@ -41,7 +55,7 @@ export class KirimEmailSmtpUserApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: 'https://smtp-app.kirim.email',
+			baseURL: '={{$credentials.baseUrl}}',
 			url: '/api/quota',
 			method: 'GET',
 		},

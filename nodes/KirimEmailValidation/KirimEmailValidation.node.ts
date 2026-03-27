@@ -25,7 +25,7 @@ export class KirimEmailValidation implements INodeType {
 			},
 		],
 		requestDefaults: {
-			baseURL: 'https://smtp-app.kirim.email',
+			baseURL: '={{$credentials.baseUrl}}',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
