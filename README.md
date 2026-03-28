@@ -75,6 +75,8 @@ Get email logs for your domain.
 - Sender - Filter logs by sender email
 - Recipient - Filter logs by recipient email
 - Subject - Filter logs by subject (partial match)
+- Event Type - Filter logs by event type (bounced, clicked, deferred, delivered, failed, opened, permanent_fail, queued, send, temporary_fail, unsubscribed)
+- Tags - Filter logs by tags (partial match)
 - Limit - Max number of results to return (default: 50, max: 10000)
 - Offset - Offset for pagination
 

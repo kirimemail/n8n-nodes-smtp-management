@@ -119,6 +119,34 @@ export class KirimEmailLog implements INodeType {
 				default: '',
 			},
 			{
+				displayName: 'Event Type',
+				name: 'event_type',
+				type: 'options',
+				options: [
+					{ name: 'All', value: '' },
+					{ name: 'Bounced', value: 'bounced' },
+					{ name: 'Clicked', value: 'clicked' },
+					{ name: 'Deferred', value: 'deferred' },
+					{ name: 'Delivered', value: 'delivered' },
+					{ name: 'Failed', value: 'failed' },
+					{ name: 'Opened', value: 'opened' },
+					{ name: 'Permanent Fail', value: 'permanent_fail' },
+					{ name: 'Queued', value: 'queued' },
+					{ name: 'Send', value: 'send' },
+					{ name: 'Temporary Fail', value: 'temporary_fail' },
+					{ name: 'Unsubscribed', value: 'unsubscribed' },
+				],
+				default: '',
+				description: 'Filter logs by event type',
+			},
+			{
+				displayName: 'Tags',
+				name: 'tags',
+				type: 'string',
+				default: '',
+				description: 'Filter logs by tags (partial match)',
+			},
+			{
 				displayName: 'Limit',
 				name: 'limit',
 				type: 'number',
@@ -163,6 +191,8 @@ export class KirimEmailLog implements INodeType {
 				const sender = this.getNodeParameter('sender', i) as string;
 				const recipient = this.getNodeParameter('recipient', i) as string;
 				const subject = this.getNodeParameter('subject', i) as string;
+				const eventType = this.getNodeParameter('event_type', i) as string;
+				const tags = this.getNodeParameter('tags', i) as string;
 				const limit = this.getNodeParameter('limit', i) as number;
 				const offset = this.getNodeParameter('offset', i) as number;
 
@@ -180,6 +210,12 @@ export class KirimEmailLog implements INodeType {
 				}
 				if (subject) {
 					queryParams.subject = subject;
+				}
+				if (eventType) {
+					queryParams.event_type = eventType;
+				}
+				if (tags) {
+					queryParams.tags = tags;
 				}
 				if (limit) {
 					queryParams.limit = String(limit);

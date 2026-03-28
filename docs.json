@@ -1769,6 +1769,26 @@
                         }
                     },
                     {
+                        "name": "event_type",
+                        "in": "query",
+                        "description": "Filter logs by event type (queued, send, delivered, bounced, failed, opened, clicked, unsubscribed, temporary_fail, permanent_fail, deferred)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "delivered"
+                        }
+                    },
+                    {
+                        "name": "tags",
+                        "in": "query",
+                        "description": "Filter logs by tags (partial match)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "newsletter"
+                        }
+                    },
+                    {
                         "name": "limit",
                         "in": "query",
                         "description": "Number of logs per page",
@@ -2040,6 +2060,26 @@
                         }
                     },
                     {
+                        "name": "event_type",
+                        "in": "query",
+                        "description": "Filter logs by event type (queued, delivered, bounced, failed, opened, clicked, unsubscribed, temporary_fail, permanent_fail, deferred)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "delivered"
+                        }
+                    },
+                    {
+                        "name": "tags",
+                        "in": "query",
+                        "description": "Filter logs by tags (partial match)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "newsletter"
+                        }
+                    },
+                    {
                         "name": "limit",
                         "in": "query",
                         "description": "Maximum number of logs to stream",
@@ -2184,20 +2224,21 @@
                                         "example": "<html><body><h2>Order Confirmation - #12345</h2><p>Dear Valued Customer,</p><p>Thank you for your recent order #12345. Your items are being prepared for shipment.</p><h3>Order Details:</h3><ul><li>Product: Premium Widget</li><li>Quantity: 2</li><li>Total: $49.99</li></ul><p>Tracking information will be sent once your order ships.</p><p>Best regards,<br>Customer Service Team</p></body></html>"
                                     },
                                     "headers": {
-                                        "description": "Optional custom email headers. Can be provided as an object or JSON string. Common use cases include tracking headers, priority settings, and unsubscribe links.",
+                                        "description": "Optional custom email headers. Can be provided as an object or JSON string. Common use cases include tracking headers, priority settings, X-Tags for log filtering, and unsubscribe links.",
                                         "oneOf": [
                                             {
                                                 "type": "object",
                                                 "example": {
                                                     "X-Order-ID": "12345",
                                                     "X-Customer-Tier": "premium",
+                                                    "X-Tags": "newsletter,promo",
                                                     "List-Unsubscribe": "mailto:unsubscribe@example.com",
                                                     "X-Priority": "3"
                                                 }
                                             },
                                             {
                                                 "type": "string",
-                                                "example": "{\"X-Order-ID\": \"12345\", \"X-Customer-Tier\": \"premium\"}"
+                                                "example": "{\"X-Order-ID\": \"12345\", \"X-Customer-Tier\": \"premium\", \"X-Tags\": \"newsletter,promo\"}"
                                             }
                                         ]
                                     },
