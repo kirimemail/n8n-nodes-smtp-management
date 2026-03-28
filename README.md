@@ -31,7 +31,7 @@ Send transactional emails using Kirim.Email SMTP.
 - Domain - Your verified Kirim.Email domain
 - From - Sender email address
 - From Name - Optional sender display name
-- To - Recipient email address(es)
+- To - Recipient email address(es) - supports single email, comma-separated emails, or JSON array (max 1000 recipients)
 - Subject - Email subject line
 - Text Body - Plain text content
 - HTML Body - Optional HTML content

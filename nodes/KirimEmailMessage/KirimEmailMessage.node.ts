@@ -153,9 +153,9 @@ export class KirimEmailMessage implements INodeType {
 				name: 'to',
 				type: 'string',
 				required: true,
-				placeholder: 'recipient@example.com',
+				placeholder: 'recipient@example.com or ["recipient1@example.com","recipient2@example.com"]',
 				description:
-					'Recipient email address(es). For multiple recipients, use comma-separated emails.',
+					'Recipient email address(es). Single email, comma-separated emails, or JSON array string. Maximum 1000 recipients.',
 				displayOptions: {
 					show: {
 						operation: ['send', 'sendTemplate'],
@@ -302,11 +302,33 @@ export class KirimEmailMessage implements INodeType {
 				let endpoint = '';
 				const formData: Record<string, unknown> = {};
 
+				const toInput = this.getNodeParameter('to', i) as string;
+				let to: string | string[];
+
+				if (toInput.trim().startsWith('[')) {
+					try {
+						to = JSON.parse(toInput) as string[];
+					} catch {
+						throw new NodeOperationError(this.getNode(), 'Invalid JSON array format for To field', {
+							itemIndex: i,
+						});
+					}
+				} else if (toInput.includes(',')) {
+					to = toInput.split(',').map((email: string) => email.trim());
+				} else {
+					to = toInput;
+				}
+
+				if (Array.isArray(to) && to.length > 1000) {
+					throw new NodeOperationError(this.getNode(), 'Maximum 1000 recipients per request', {
+						itemIndex: i,
+					});
+				}
+
 				if (operation === 'send') {
 					endpoint = `/api/domains/${domain}/message`;
 
 					const from = this.getNodeParameter('from', i) as string;
-					const to = this.getNodeParameter('to', i) as string;
 					const subject = this.getNodeParameter('subject', i) as string;
 					const text = this.getNodeParameter('text', i) as string;
 
@@ -360,7 +382,6 @@ export class KirimEmailMessage implements INodeType {
 					endpoint = `/api/domains/${domain}/message/template`;
 
 					const templateGuid = this.getNodeParameter('templateGuid', i) as string;
-					const to = this.getNodeParameter('to', i) as string;
 
 					if (!templateGuid) {
 						throw new NodeOperationError(this.getNode(), 'Template ID is required', {
