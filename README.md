@@ -1,6 +1,6 @@
 # @kirimemail/n8n-nodes-smtp-management
 
-n8n community node for Kirim.Email SMTP API - validate emails, check quota, and send transactional emails.
+n8n community node for Kirim.Email SMTP API - validate emails, check quota, send transactional emails, and view email logs.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/sustainable-use-license/) workflow automation platform.
 
@@ -62,6 +62,21 @@ Check quota information.
 **Operations:**
 
 - **Get** - Get current quota information
+
+### KirimEmail Log
+
+Get email logs for your domain.
+
+**Fields:**
+
+- Domain - Your verified Kirim.Email domain
+- Start Date - Filter logs by start date (ISO8601)
+- End Date - Filter logs by end date (ISO8601)
+- Sender - Filter logs by sender email
+- Recipient - Filter logs by recipient email
+- Subject - Filter logs by subject (partial match)
+- Limit - Max number of results to return (default: 50, max: 10000)
+- Offset - Offset for pagination
 
 ### KirimEmail SMTP Webhook Trigger
 

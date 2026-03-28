@@ -1759,6 +1759,16 @@
                         }
                     },
                     {
+                        "name": "subject",
+                        "in": "query",
+                        "description": "Filter logs by subject (partial match)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Welcome"
+                        }
+                    },
+                    {
                         "name": "limit",
                         "in": "query",
                         "description": "Number of logs per page",
@@ -2017,6 +2027,16 @@
                         "schema": {
                             "type": "string",
                             "example": "recipient@example.com"
+                        }
+                    },
+                    {
+                        "name": "subject",
+                        "in": "query",
+                        "description": "Filter logs by subject (partial match)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Welcome"
                         }
                     },
                     {
