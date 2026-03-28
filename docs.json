@@ -89,10 +89,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/CredentialUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/CredentialNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/CredentialTooManyRequests"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/CredentialServerError"
                     }
                 },
                 "security": [
@@ -199,13 +205,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/CredentialUnauthorized"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/CredentialNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/CredentialValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/CredentialTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/CredentialServerError"
                     }
                 },
                 "security": [
@@ -268,13 +280,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/CredentialUnauthorized"
                     },
                     "403": {
-                        "description": "Forbidden"
+                        "$ref": "#/components/responses/CredentialForbidden"
                     },
                     "404": {
-                        "description": "Credential not found"
+                        "$ref": "#/components/responses/CredentialNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/CredentialTooManyRequests"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/CredentialServerError"
                     }
                 },
                 "security": [
@@ -337,16 +355,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/CredentialUnauthorized"
                     },
                     "403": {
-                        "description": "Forbidden"
+                        "$ref": "#/components/responses/CredentialForbidden"
                     },
                     "404": {
-                        "description": "Credential not found"
+                        "$ref": "#/components/responses/CredentialNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/CredentialTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/CredentialServerError"
                     }
                 },
                 "security": [
@@ -434,16 +455,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/CredentialUnauthorized"
                     },
                     "403": {
-                        "description": "Forbidden"
+                        "$ref": "#/components/responses/CredentialForbidden"
                     },
                     "404": {
-                        "description": "Credential not found"
+                        "$ref": "#/components/responses/CredentialNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/CredentialTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/CredentialServerError"
                     }
                 },
                 "security": [
@@ -524,7 +548,10 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     }
                 },
                 "security": [
@@ -631,13 +658,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/DomainValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -689,10 +719,13 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     }
                 },
                 "security": [
@@ -805,16 +838,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/DomainValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -861,10 +897,13 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found or could not be deleted"
+                        "$ref": "#/components/responses/DomainNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     }
                 },
                 "security": [
@@ -948,16 +987,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/DomainValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -1022,13 +1064,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -1093,16 +1138,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
                     },
                     "422": {
-                        "description": "Authentication domain not configured"
+                        "$ref": "#/components/responses/DomainValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -1177,16 +1225,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/DomainValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -1246,16 +1297,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/DomainUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/DomainNotFound"
                     },
                     "422": {
-                        "description": "Tracking domain not configured"
+                        "$ref": "#/components/responses/DomainValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/DomainTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/DomainServerError"
                     }
                 },
                 "security": [
@@ -1333,45 +1387,16 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid request parameters",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The given data was invalid."
-                                        },
-                                        "errors": {
-                                            "properties": {
-                                                "email": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string",
-                                                        "example": "The email must be a valid email address."
-                                                    }
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/EmailValidationBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/EmailValidationUnauthorized"
                     },
                     "429": {
-                        "description": "Rate limit exceeded"
+                        "$ref": "#/components/responses/EmailValidationTooManyRequests"
                     },
                     "500": {
-                        "description": "Internal server error"
+                        "$ref": "#/components/responses/EmailValidationServerError"
                     }
                 },
                 "security": [
@@ -1449,45 +1474,16 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid request parameters",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The given data was invalid."
-                                        },
-                                        "errors": {
-                                            "properties": {
-                                                "email": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string",
-                                                        "example": "The email must be a valid email address."
-                                                    }
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/EmailValidationBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/EmailValidationUnauthorized"
                     },
                     "429": {
-                        "description": "Rate limit exceeded"
+                        "$ref": "#/components/responses/EmailValidationTooManyRequests"
                     },
                     "500": {
-                        "description": "Internal server error"
+                        "$ref": "#/components/responses/EmailValidationServerError"
                     }
                 },
                 "security": [
@@ -1580,45 +1576,16 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid request parameters",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The given data was invalid."
-                                        },
-                                        "errors": {
-                                            "properties": {
-                                                "emails": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string",
-                                                        "example": "The emails field must not have more than 100 items."
-                                                    }
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/EmailValidationBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/EmailValidationUnauthorized"
                     },
                     "429": {
-                        "description": "Rate limit exceeded for batch requests"
+                        "$ref": "#/components/responses/EmailValidationTooManyRequests"
                     },
                     "500": {
-                        "description": "Internal server error"
+                        "$ref": "#/components/responses/EmailValidationServerError"
                     }
                 },
                 "security": [
@@ -1711,45 +1678,16 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid request parameters",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The given data was invalid."
-                                        },
-                                        "errors": {
-                                            "properties": {
-                                                "emails": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "type": "string",
-                                                        "example": "The emails field must not have more than 100 items."
-                                                    }
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/EmailValidationBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/EmailValidationUnauthorized"
                     },
                     "429": {
-                        "description": "Rate limit exceeded for batch requests"
+                        "$ref": "#/components/responses/EmailValidationTooManyRequests"
                     },
                     "500": {
-                        "description": "Internal server error"
+                        "$ref": "#/components/responses/EmailValidationServerError"
                     }
                 },
                 "security": [
@@ -1847,6 +1785,20 @@
                 "responses": {
                     "200": {
                         "description": "Success",
+                        "headers": {
+                            "X-RateLimit-Limit": {
+                                "description": "Maximum requests per minute",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            },
+                            "X-RateLimit-Remaining": {
+                                "description": "Remaining requests in current window",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -1897,16 +1849,19 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request"
+                        "$ref": "#/components/responses/LogBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/LogUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/LogNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/LogTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/LogServerError"
                     }
                 },
                 "security": [
@@ -1949,48 +1904,29 @@
                 "responses": {
                     "200": {
                         "description": "Success",
+                        "headers": {
+                            "X-RateLimit-Limit": {
+                                "description": "Maximum requests per minute",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            },
+                            "X-RateLimit-Remaining": {
+                                "description": "Remaining requests in current window",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "description": "Array of log entries for the specific message in the user's domain",
                                     "properties": {
                                         "data": {
-                                            "description": "Email log entry for the specific message and domain",
-                                            "properties": {
-                                                "id": {
-                                                    "description": "Unique identifier for the log entry",
-                                                    "type": "string",
-                                                    "example": "log-id-123"
-                                                },
-                                                "user_guid": {
-                                                    "description": "GUID of the user who sent the email",
-                                                    "type": "string",
-                                                    "example": "user-guid-123"
-                                                },
-                                                "user_domain_guid": {
-                                                    "description": "GUID of the domain used to send the email",
-                                                    "type": "string",
-                                                    "example": "domain-guid-456"
-                                                },
-                                                "event_type": {
-                                                    "description": "Type of email event (sent, delivered, bounced, opened, clicked, etc.)",
-                                                    "type": "string",
-                                                    "example": "delivered"
-                                                },
-                                                "message_guid": {
-                                                    "description": "Unique identifier for the email message",
-                                                    "type": "string",
-                                                    "example": "550e8400-e29b-41d4-a716-446655440000"
-                                                },
-                                                "timestamp": {
-                                                    "description": "Unix timestamp when the event occurred",
-                                                    "type": "integer",
-                                                    "example": 1640995200
-                                                }
-                                            },
+                                            "description": "Array of log entries for the specific message in the user's domain",
                                             "type": "array",
                                             "items": {
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/LogEntry"
                                             }
                                         }
                                     },
@@ -1998,6 +1934,21 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/LogBadRequest"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/LogUnauthorized"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/LogNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/LogTooManyRequests"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/LogServerError"
                     }
                 },
                 "security": [
@@ -2084,6 +2035,20 @@
                 "responses": {
                     "200": {
                         "description": "Server-Sent Events stream",
+                        "headers": {
+                            "X-RateLimit-Limit": {
+                                "description": "Maximum requests per minute",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            },
+                            "X-RateLimit-Remaining": {
+                                "description": "Remaining requests in current window",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
                         "content": {
                             "text/event-stream": {
                                 "schema": {
@@ -2094,16 +2059,19 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request"
+                        "$ref": "#/components/responses/LogBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/LogUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/LogNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/LogTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/LogServerError"
                     }
                 },
                 "security": [
@@ -2252,6 +2220,20 @@
                 "responses": {
                     "202": {
                         "description": "Email send jobs successfully dispatched for asynchronous processing",
+                        "headers": {
+                            "X-RateLimit-Limit": {
+                                "description": "Maximum requests per minute",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            },
+                            "X-RateLimit-Remaining": {
+                                "description": "Remaining requests in current window",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2273,164 +2255,22 @@
                         }
                     },
                     "400": {
-                        "description": "Bad Request - Missing authentication or invalid request structure",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "type": "string",
-                                            "example": "User authentication missing"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/MessageBadRequest"
                     },
                     "401": {
-                        "description": "Unauthorized - Invalid user credentials or session expired",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "type": "string",
-                                            "example": "Authentication required"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/MessageUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found or user does not own the specified domain",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "type": "string",
-                                            "example": "Domain not found or you do not own this domain."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/MessageNotFound"
                     },
                     "422": {
-                        "description": "Validation Error - Invalid input data, business rule violations, or configuration issues",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "oneOf": [
-                                        {
-                                            "properties": {
-                                                "success": {
-                                                    "type": "boolean",
-                                                    "example": false
-                                                },
-                                                "message": {
-                                                    "type": "string",
-                                                    "example": "Validation failed."
-                                                },
-                                                "errors": {
-                                                    "properties": {
-                                                        "from": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            },
-                                                            "example": [
-                                                                "The from address domain must match the specified domain."
-                                                            ]
-                                                        },
-                                                        "to": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            },
-                                                            "example": [
-                                                                "The to.0 field must be a valid email address."
-                                                            ]
-                                                        },
-                                                        "subject": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            },
-                                                            "example": [
-                                                                "The subject field is required."
-                                                            ]
-                                                        },
-                                                        "attachments": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            },
-                                                            "example": [
-                                                                "The file size exceeds the maximum allowed size."
-                                                            ]
-                                                        }
-                                                    },
-                                                    "type": "object"
-                                                }
-                                            },
-                                            "type": "object"
-                                        },
-                                        {
-                                            "properties": {
-                                                "error": {
-                                                    "type": "string",
-                                                    "example": "Total email payload exceeds maximum size of 25.00 MB"
-                                                }
-                                            },
-                                            "type": "object"
-                                        },
-                                        {
-                                            "properties": {
-                                                "error": {
-                                                    "type": "string",
-                                                    "example": "No SMTP credentials configured for this domain"
-                                                }
-                                            },
-                                            "type": "object"
-                                        },
-                                        {
-                                            "properties": {
-                                                "error": {
-                                                    "type": "string",
-                                                    "example": "The reply_to address must have the same top-level domain as from."
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/MessageValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/MessageTooManyRequests"
                     },
                     "500": {
-                        "description": "Internal Server Error - Unexpected system error during processing",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "An error occurred while sending the message. Please try again."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/MessageServerError"
                     }
                 },
                 "security": [
@@ -2593,6 +2433,20 @@
                 "responses": {
                     "202": {
                         "description": "Template-based email jobs dispatched",
+                        "headers": {
+                            "X-RateLimit-Limit": {
+                                "description": "Maximum requests per minute",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            },
+                            "X-RateLimit-Remaining": {
+                                "description": "Remaining requests in current window",
+                                "schema": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -2620,16 +2474,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/TemplateMessageUnauthorized"
                     },
                     "404": {
-                        "description": "Domain or template not found"
+                        "$ref": "#/components/responses/TemplateMessageNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/TemplateMessageValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/TemplateMessageTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/TemplateMessageServerError"
                     }
                 },
                 "security": [
@@ -2687,84 +2544,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized - Invalid or missing API credentials",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Unauthorized"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/QuotaUnauthorized"
                     },
                     "404": {
-                        "description": "User not found or has no quota configured",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "User quota not found"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/QuotaNotFound"
                     },
                     "429": {
-                        "description": "Too many requests - Rate limit exceeded",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Too many requests"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/QuotaTooManyRequests"
                     },
                     "500": {
-                        "description": "Internal server error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Internal server error"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/responses/QuotaServerError"
                     }
                 },
                 "security": [
@@ -2871,10 +2660,13 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/SuppressionNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     }
                 },
                 "security": [
@@ -2966,10 +2758,13 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/SuppressionNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     }
                 },
                 "security": [
@@ -3050,13 +2845,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/SuppressionValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/SuppressionServerError"
                     }
                 },
                 "security": [
@@ -3148,10 +2946,13 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/SuppressionNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     }
                 },
                 "security": [
@@ -3232,13 +3033,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/SuppressionValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/SuppressionServerError"
                     }
                 },
                 "security": [
@@ -3330,10 +3134,13 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/SuppressionNotFound"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     }
                 },
                 "security": [
@@ -3452,16 +3259,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/SuppressionNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/SuppressionValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/SuppressionServerError"
                     }
                 },
                 "security": [
@@ -3542,13 +3352,16 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/SuppressionUnauthorized"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/SuppressionValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/SuppressionTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/SuppressionServerError"
                     }
                 },
                 "security": [
@@ -3632,16 +3445,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/WebhookUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/WebhookNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/WebhookValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/WebhookTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/WebhookServerError"
                     }
                 },
                 "security": [
@@ -3737,16 +3553,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/WebhookUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/WebhookNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/WebhookValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/WebhookTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/WebhookServerError"
                     }
                 },
                 "security": [
@@ -3809,13 +3628,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/WebhookUnauthorized"
                     },
                     "404": {
-                        "description": "Webhook not found"
+                        "$ref": "#/components/responses/WebhookNotFound"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/WebhookValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/WebhookTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/WebhookServerError"
                     }
                 },
                 "security": [
@@ -3918,16 +3743,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/WebhookUnauthorized"
                     },
                     "404": {
-                        "description": "Webhook not found"
+                        "$ref": "#/components/responses/WebhookNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/WebhookValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/WebhookTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/WebhookServerError"
                     }
                 },
                 "security": [
@@ -3990,13 +3818,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/WebhookUnauthorized"
                     },
                     "404": {
-                        "description": "Webhook not found or could not be deleted"
+                        "$ref": "#/components/responses/WebhookNotFound"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/WebhookValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/WebhookTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/WebhookServerError"
                     }
                 },
                 "security": [
@@ -4165,16 +3999,19 @@
                         }
                     },
                     "401": {
-                        "description": "Unauthorized"
+                        "$ref": "#/components/responses/WebhookUnauthorized"
                     },
                     "404": {
-                        "description": "Domain not found"
+                        "$ref": "#/components/responses/WebhookNotFound"
                     },
                     "422": {
-                        "description": "Validation Error"
+                        "$ref": "#/components/responses/WebhookValidationError"
+                    },
+                    "429": {
+                        "$ref": "#/components/responses/WebhookTooManyRequests"
                     },
                     "500": {
-                        "description": "Server Error"
+                        "$ref": "#/components/responses/WebhookServerError"
                     }
                 },
                 "security": [
@@ -4421,6 +4258,42 @@
                 },
                 "type": "object"
             },
+            "LogEntry": {
+                "description": "Email log entry",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the log entry",
+                        "type": "string",
+                        "example": "log-id-123"
+                    },
+                    "user_guid": {
+                        "description": "GUID of the user who sent the email",
+                        "type": "string",
+                        "example": "user-guid-123"
+                    },
+                    "user_domain_guid": {
+                        "description": "GUID of the domain used to send the email",
+                        "type": "string",
+                        "example": "domain-guid-456"
+                    },
+                    "event_type": {
+                        "description": "Type of email event (sent, delivered, bounced, opened, clicked, etc.)",
+                        "type": "string",
+                        "example": "delivered"
+                    },
+                    "message_guid": {
+                        "description": "Unique identifier for the email message",
+                        "type": "string",
+                        "example": "550e8400-e29b-41d4-a716-446655440000"
+                    },
+                    "timestamp": {
+                        "description": "Unix timestamp when the event occurred",
+                        "type": "integer",
+                        "example": 1640995200
+                    }
+                },
+                "type": "object"
+            },
             "Suppression": {
                 "description": "Suppression entry",
                 "properties": {
@@ -4539,7 +4412,151 @@
             }
         },
         "responses": {
-            "Unauthorized": {
+            "CredentialUnauthorized": {
+                "description": "Unauthorized - Invalid or missing authentication credentials",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Unauthorized"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "CredentialForbidden": {
+                "description": "Forbidden - Credential does not belong to the specified domain",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Credential does not belong to the specified domain"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "CredentialNotFound": {
+                "description": "Credential not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Credential not found"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "CredentialValidationError": {
+                "description": "Validation Error - Invalid input data",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Validation failed."
+                                },
+                                "errors": {
+                                    "description": "Field-specific validation errors",
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "CredentialServerError": {
+                "description": "Server Error - Unexpected error occurred",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while processing the request."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "CredentialTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "DomainUnauthorized": {
                 "description": "Unauthorized",
                 "content": {
                     "application/json": {
@@ -4561,7 +4578,27 @@
                     }
                 }
             },
-            "ValidationError": {
+            "DomainNotFound": {
+                "description": "Domain not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Domain not found"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "DomainValidationError": {
                 "description": "Validation Error",
                 "content": {
                     "application/json": {
@@ -4587,7 +4624,7 @@
                     }
                 }
             },
-            "ServerError": {
+            "DomainServerError": {
                 "description": "Server Error",
                 "content": {
                     "application/json": {
@@ -4609,17 +4646,915 @@
                     }
                 }
             },
-            "400": {
-                "description": "Bad Request"
+            "DomainTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
             },
-            "401": {
-                "description": "Unauthorized"
+            "EmailValidationBadRequest": {
+                "description": "Invalid request parameters",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "The given data was invalid."
+                                },
+                                "errors": {
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
             },
-            "404": {
-                "description": "Domain or log not found"
+            "EmailValidationUnauthorized": {
+                "description": "Unauthorized - Invalid or missing authentication",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Unauthorized"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
             },
-            "500": {
-                "description": "Server Error"
+            "EmailValidationTooManyRequests": {
+                "description": "Rate limit exceeded",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per hour",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Rate limit exceeded. Please try again later."
+                                },
+                                "retry_after": {
+                                    "description": "Seconds until rate limit resets",
+                                    "type": "integer",
+                                    "example": 3600
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "EmailValidationServerError": {
+                "description": "Internal server error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Internal server error occurred during email validation"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "LogBadRequest": {
+                "description": "Bad Request - User authentication missing",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "User authentication missing"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "LogUnauthorized": {
+                "description": "Unauthorized - Invalid or missing authentication",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "Unauthorized"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "LogNotFound": {
+                "description": "Not Found - Domain or log not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "Domain not found or you do not own this domain"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "LogServerError": {
+                "description": "Server Error - Unexpected error occurred",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "Unknown error"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "LogTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "MessageBadRequest": {
+                "description": "Bad Request - Missing authentication or invalid request structure",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "User authentication missing"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "MessageUnauthorized": {
+                "description": "Unauthorized - Invalid user credentials or session expired",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "Authentication required"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "MessageNotFound": {
+                "description": "Domain not found or user does not own the specified domain",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "Domain not found or you do not own this domain."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "MessageValidationError": {
+                "description": "Validation Error - Invalid input data, business rule violations, or configuration issues",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "": {
+                                    "oneOf": [
+                                        {
+                                            "properties": {
+                                                "success": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "Validation failed."
+                                                },
+                                                "errors": {
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        {
+                                            "properties": {
+                                                "error": {
+                                                    "type": "string",
+                                                    "example": "Total email payload exceeds maximum size"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "MessageServerError": {
+                "description": "Internal Server Error - Unexpected system error during processing",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while sending the message. Please try again."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "MessageTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TemplateMessageBadRequest": {
+                "description": "Bad Request - User authentication missing or invalid request",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "User authentication missing"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TemplateMessageUnauthorized": {
+                "description": "Unauthorized - Invalid or missing authentication credentials",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Unauthorized"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TemplateMessageNotFound": {
+                "description": "Not Found - Domain or template not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Domain not found or you do not own this domain."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TemplateMessageValidationError": {
+                "description": "Validation Error - Invalid input data",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Validation failed."
+                                },
+                                "errors": {
+                                    "description": "Field-specific validation errors",
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TemplateMessageServerError": {
+                "description": "Server Error - Unexpected error occurred",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while sending the template message. Please try again."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TemplateMessageTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "QuotaUnauthorized": {
+                "description": "Unauthorized - Invalid or missing API credentials",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "description": "Public API Controller for Quota Management\n\nHandles public-facing quota-related API requests.",
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Unauthorized - User not authenticated"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "QuotaNotFound": {
+                "description": "User not found or has no quota configured",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "User quota not found"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "QuotaTooManyRequests": {
+                "description": "Too many requests - Rate limit exceeded",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many requests"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "QuotaServerError": {
+                "description": "Internal server error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Internal server error"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "SuppressionUnauthorized": {
+                "description": "Unauthorized - Invalid or missing authentication credentials",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Unauthorized"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "SuppressionNotFound": {
+                "description": "Not Found - Domain not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Domain not found"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "SuppressionValidationError": {
+                "description": "Validation Error - Invalid input data",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Validation failed."
+                                },
+                                "errors": {
+                                    "description": "Field-specific validation errors",
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "SuppressionServerError": {
+                "description": "Server Error - Unexpected error occurred",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while processing the request."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "SuppressionTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "WebhookBadRequest": {
+                "description": "Bad Request - User authentication missing",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "error": {
+                                    "type": "string",
+                                    "example": "User authentication missing"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "WebhookUnauthorized": {
+                "description": "Unauthorized - Invalid or missing authentication credentials",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Unauthorized"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "WebhookNotFound": {
+                "description": "Not Found - Domain or webhook not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Domain not found or you do not own this domain"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "WebhookValidationError": {
+                "description": "Validation Error - Invalid input data",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Validation failed."
+                                },
+                                "errors": {
+                                    "description": "Field-specific validation errors",
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "WebhookServerError": {
+                "description": "Server Error - Unexpected error occurred",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "An error occurred while processing the request."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "WebhookTooManyRequests": {
+                "description": "Too Many Requests - Rate limit exceeded. Retry after the specified time.",
+                "headers": {
+                    "Retry-After": {
+                        "description": "Seconds until rate limit resets",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Limit": {
+                        "description": "Maximum requests per minute",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    "X-RateLimit-Remaining": {
+                        "description": "Remaining requests in current window",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": false
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Too many attempts. Please try again later."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
             }
         },
         "securitySchemes": {
