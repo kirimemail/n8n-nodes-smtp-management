@@ -477,9 +477,7 @@ export class KirimEmailMessage implements INodeType {
 					{
 						method: 'POST',
 						url: `${baseUrl}${endpoint}`,
-						// eslint-disable-next-line @typescript-eslint/no-explicit-any
-						formData: formData as any,
-						// eslint-disable-next-line @typescript-eslint/no-explicit-any
+						body: formData,
 					} as any,
 				);
 
